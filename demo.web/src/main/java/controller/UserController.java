@@ -16,7 +16,7 @@ public class UserController {
     public String selectTest() {
 
         System.out.println("hello 这世界h！");
-        return "hahah123123";
+        return "test2";
     }
 
 }

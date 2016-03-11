@@ -217,7 +217,6 @@
             <version>8.0.4.v20111024</version>
         </dependency>-->
 
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -243,6 +242,7 @@
                             <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>
+
                     <webAppConfig>
                         <contextPath>/</contextPath>
                     </webAppConfig>
@@ -272,6 +272,33 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <container>
+                        <containerId>jetty9x</containerId>
+                        <type>remote</type>
+                    </container>
+
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.hostname>127.0.0.1</cargo.hostname>
+                            <cargo.servlet.port>8888</cargo.servlet.port>
+                            <cargo.remote.username>libang</cargo.remote.username>
+                            <cargo.remote.password>123456</cargo.remote.password>
+                        </properties>
+                    </configuration>
+                    <deployer>
+                        <type>remote</type>
+                    </deployer>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>
