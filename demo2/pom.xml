@@ -10,6 +10,13 @@
     <packaging>war</packaging>
     <name>demo2 Maven Webapp</name>
     <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.framework.version>4.1.6.RELEASE</spring.framework.version>
+        <spring.integration.version>4.1.3.RELEASE</spring.integration.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -20,5 +27,58 @@
     </dependencies>
     <build>
         <finalName>demo2</finalName>
+        <plugins>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <container>
+                        <containerId>jetty9x</containerId>
+                        <type>remote</type>
+                    </container>
+
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.hostname>192.168.28.200</cargo.hostname>
+                            <cargo.servlet.port>8888</cargo.servlet.port>
+                            <cargo.remote.username>libang</cargo.remote.username>
+                            <cargo.remote.password>123456</cargo.remote.password>
+                        </properties>
+                    </configuration>
+                    <deployer>
+                        <type>remote</type>
+                    </deployer>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

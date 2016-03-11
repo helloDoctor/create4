@@ -204,19 +204,6 @@
             <version>1.4.2</version>
         </dependency>
 
-        <!-- Jetty
-        <dependency>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
-            <artifactId>jetty-all</artifactId>
-            <version>8.0.4.v20111024</version>
-        </dependency>-->
-        <!-- Jetty Webapp
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>8.0.4.v20111024</version>
-        </dependency>-->
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
